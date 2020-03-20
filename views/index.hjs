@@ -7,5 +7,22 @@
   <body>
     <h1>{{ title }}</h1>
     <p>Welcome to {{ title }}</p>
+
+    <form action="ville" method="post" class="form">
+       <div class="form">
+         <input type="text" name="ville" id="nom_name" placeholder="nom_ville" required>
+       </div>
+       <div class="form">
+         <input type="submit" value="Subscribe!">
+       </div>
+     </form>
+
   </body>
 </html>
+
+<script>
+  const button = document.getElementById('sendButton');
+  button.addEventListener('click', function(e) {
+    console.log('button was clicked');
+  });
+</script>
