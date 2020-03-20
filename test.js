@@ -1,6 +1,6 @@
 const test = require('ava');
 const http = require('http');
-//const fetch = require('node-fetch');
+const fetch = require('node-fetch');
 
 function httpGet(url) {
   return new Promise((resolve, reject) => {
@@ -14,14 +14,14 @@ function httpGet(url) {
   });
 }
 
-/*function httpPost(url, body) {
+function httpPost(url, body) {
   return fetch(url, {
           method: 'post',
           body:    JSON.stringify(body),
           headers: { 'Content-Type': 'application/json' },
       })
       .then(res => res.text());
-}*/
+}
 
 test('home page should contain a form', async t => {
   // condition de passage: la page contient un formulaire HTML
@@ -30,7 +30,7 @@ test('home page should contain a form', async t => {
   t.regex(html, /<form/);
 });
 
-/*test('city page should contain the name of the city', async t => {
+test('city page should contain the name of the city', async t => {
   const html = await httpPost('http://localhost:3000/ville', { ville: 'paris' });
   t.regex(html, /paris/);
 });
@@ -38,4 +38,4 @@ test('home page should contain a form', async t => {
 test('city name with accentuated character should be supported', async t => {
   const html = await httpPost('http://localhost:3000/ville', { ville: 'nîmes' });
   t.regex(html, /nîmes/);
-});*/
+});
